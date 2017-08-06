@@ -1,7 +1,7 @@
-import { Pipe } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({name: 'round'})
-export class RoundPipe {
+export class RoundPipe implements PipeTransform {
   transform(input: number) {
     return Math.round(input);
   }

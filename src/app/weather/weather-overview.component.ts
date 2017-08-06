@@ -19,11 +19,16 @@ export class WeatherOverviewComponent implements OnInit {
   ngOnInit() {
     this.weatherService.getCities('../../assets/api/cities.json').subscribe(
       (cities) => {
+        // We fill our cities array with the data retrieved
         this.cities = cities;
+
+        // As a default, I have decided to select the first city of the array
         this.currentCity = this.cities[0];
 
-        console.log(JSON.stringify(cities));
-      });
+        // We send the current selected city to the shared service
+        this.weatherService.citySelected(this.currentCity);
+      }
+    );
 
     this.citySelectedSubscription = this.weatherService.citySelected$.subscribe(
       (selectedCity) => {

@@ -19,7 +19,11 @@ export class CityDetailsComponent implements OnInit, OnDestroy {
         this.currentCity = selectedCity;
         this.weatherService.getCityForecast(selectedCity.id).subscribe(
           (cityForecast) => {
+            // Mapping forecast data in order to filter data and obtain an array with 5 objects, one per day
             this.mapToGetFiveDays(cityForecast.list);
+
+            // Triggering shared service method in order to send the forecast data to the Chart's component
+            this.weatherService.cityForecast(this.cityForecast5days);
           });
       }
     );
