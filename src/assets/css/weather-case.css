@@ -1,0 +1,35 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.pagination {
+  margin-bottom: 30px;
+}
+
+.bg-blue-dark {
+  background-color: #002340 !important;
+}
+
+table.city-table {
+  padding: 10px;
+}
+
+table.city-table tbody tr:hover {
+  background-color: #0275d8;
+  color: #eeeeee;
+  cursor: pointer;
+}
+
+div.forecast p i.owf {
+  font-size: 2.2em;
+}

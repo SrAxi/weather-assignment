@@ -1,0 +1,27 @@
+[
+  {
+    "id": 2759794,
+    "name": "Amsterdam",
+    "countryCode": "NL"
+  },
+  {
+    "id": 3170647,
+    "name": "Pisa",
+    "countryCode": "IT"
+  },
+  {
+    "id": 2514256,
+    "name": "Malaga",
+    "countryCode": "ES"
+  },
+  {
+    "id": 3413829,
+    "name": "Reykjavik",
+    "countryCode": "IS"
+  },
+  {
+    "id": 3450554,
+    "name": "Salvador da Bahia",
+    "countryCode": "BR"
+  }
+]

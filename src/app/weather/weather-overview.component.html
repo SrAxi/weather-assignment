@@ -1,0 +1,17 @@
+<h1 class="my-4">Europe
+  <small>{{currentCity?.name}}</small>
+</h1>
+
+<div class="row">
+  <div class="col-lg-6 portfolio-item">
+    <div class="card">
+      <city-selector [citiesList]="cities"></city-selector>
+    </div>
+  </div>
+  <div class="col-lg-6 portfolio-item">
+    <div class="card h-100">
+      <city-details></city-details>
+    </div>
+  </div>
+</div>
+<!-- /.row -->

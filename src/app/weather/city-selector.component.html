@@ -1,0 +1,22 @@
+<table class="table table-hover city-table">
+  <thead>
+  <tr>
+    <th>City</th>
+    <th>Temperature</th>
+    <th>Wind</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let city of citiesCompleteInfo" (click)="getCityDetails(city)">
+    <td>
+      {{city.name}}
+    </td>
+    <td>
+      {{city.data.main.temp | round}} ºC
+    </td>
+    <td>
+      {{city.data.wind.speed}} m/s
+    </td>
+  </tr>
+  </tbody>
+</table>
