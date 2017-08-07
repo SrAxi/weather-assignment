@@ -1,22 +1,35 @@
-<table class="table table-hover city-table">
-  <thead>
-  <tr>
-    <th>City</th>
-    <th>Temperature</th>
-    <th>Wind</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let city of citiesCompleteInfo" (click)="getCityDetails(city)">
-    <td>
-      {{city.name}} <img src="../../assets/img/{{city.countryCode}}.png" width="25"/>
-    </td>
-    <td>
-      {{city.data.main.temp | round}} ºC
-    </td>
-    <td>
-      {{city.data.wind.speed}} m/s
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div *ngIf="!errorGettingCurrent.error; else errorDisplay">
+  <table class="table table-hover city-table">
+    <thead>
+    <tr>
+      <th>City</th>
+      <th>Temperature</th>
+      <th>Wind</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let city of citiesCompleteInfo" (click)="getCityDetails(city)">
+      <td>
+        {{city.name}} <img src="../../assets/img/{{city.countryCode}}.png" width="25"/>
+      </td>
+      <td>
+        {{city.data.main.temp | round}} ºC
+      </td>
+      <td>
+        {{city.data.wind.speed}} m/s
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #errorDisplay>
+  <div class="container">
+    <h4 class="card-title">{{errorGettingCurrent.msg}}
+    </h4>
+    <div class="card-block h-100">
+      <p>An error occurred while trying to retrieve current weather data! We are sorry...</p>
+      <p>Please try again, if the error persists contact technical support at
+        <a href="mailto:riccardo.polacci@sytac.io?subject=API call error (current)">riccardo.polacci@sytac.io</a></p>
+    </div>
+  </div>
+</ng-template>

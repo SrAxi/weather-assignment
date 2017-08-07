@@ -10,18 +10,26 @@ import Chart from 'chart.js';
   templateUrl: './city-chart.component.html'
 })
 export class CityChartComponent implements OnInit, OnDestroy {
+  // Current selected city
   currentCity: City;
 
-  // Chart params
+  // Chart instance property
   forecastChart;
+
+  // Chart days display
   private days = <any>[];
+
+  // DOM context for Chart
   private ctx = 'forecastChart';
+
+  // Data to fill Chart with
   private chartData: any = {
     temp: [],
     hum: [],
     wind: []
   };
 
+  // Chart's options parameter
   private options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -54,16 +62,19 @@ export class CityChartComponent implements OnInit, OnDestroy {
   private citySelectedSubscription: Subscription;
   private cityForecastSubscription: Subscription;
 
-  constructor(private weatherService: WeatherService, private datePipe: DatePipe) {
+  constructor(private weatherService: WeatherService,
+              private datePipe: DatePipe) {
   }
 
   ngOnInit() {
+    // Triggers when a city is selected
     this.citySelectedSubscription = this.weatherService.citySelected$.subscribe(
       (selectedCity) => {
         this.currentCity = selectedCity;
       }
     );
 
+    // Triggers when forecast data for current city is received in CityDetailsComponent
     this.cityForecastSubscription = this.weatherService.cityForecast$.subscribe(
       (forecast) => {
         // Clearing arrays so we don't stack data in the chart
@@ -98,6 +109,8 @@ export class CityChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    // Thinking big, when this App will have some navigation and components will destroy and recreate, we'll want to
+    // unsubscribe to avoid memory leaks
     if (this.citySelectedSubscription) {
       this.citySelectedSubscription.unsubscribe();
     }
@@ -106,6 +119,9 @@ export class CityChartComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Rendering Chart method
+  // It's very handy to create a method for the Chart rendering because this way we'll know when the data is available
+  // and will be always able to instance the Chart when the data is there
   renderChart() {
     const config = {
       type: 'line',

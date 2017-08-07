@@ -1,13 +1,26 @@
-<div class="container">
-  <h4 class="card-title">Forecast
-    <small>{{currentCity?.name}}</small>
-  </h4>
-  <div class="card-block row align-items-center">
-    <div class="forecast row col-md-12" *ngFor="let day of cityForecast5days">
-      <div class="col">{{day.dt_txt | date: 'EEE'}}</div>
-      <div class="col"><i class="owf owf-{{day.weather[0].id}}"></i></div>
-      <div class="col">{{day.main.temp | round}} ºC</div>
-      <div class="col">{{day.weather[0].main}}</div>
+<div *ngIf="!errorGettingForecast.error; else errorDisplay">
+  <div class="container">
+    <h4 class="card-title">Forecast
+      <small>{{currentCity?.name}}</small>
+    </h4>
+    <div class="card-block row align-items-center">
+      <div class="forecast row col-md-12" *ngFor="let day of cityForecast5days">
+        <div class="col">{{day.dt_txt | date: 'EEE'}}</div>
+        <div class="col"><i class="owf owf-{{day.weather[0].id}}"></i></div>
+        <div class="col">{{day.main.temp | round}} ºC</div>
+        <div class="col">{{day.weather[0].main}}</div>
+      </div>
     </div>
   </div>
 </div>
+<ng-template #errorDisplay>
+  <div class="container">
+    <h4 class="card-title">{{errorGettingForecast.msg}}
+    </h4>
+    <div class="card-block h-100">
+      <p>An error occurred while trying to retrieve forecast weather data! We are sorry...</p>
+      <p>Please try again, if the error persists contact technical support at
+        <a href="mailto:riccardo.polacci@sytac.io?subject=API call error (forecast)">riccardo.polacci@sytac.io</a></p>
+    </div>
+  </div>
+</ng-template>
