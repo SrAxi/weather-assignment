@@ -6,7 +6,7 @@ import { RoundPipe } from './round.pipe';
   exports: [RoundPipe]
 })
 export class UtilsModule {
-  static forRoot () {
+  static forRoot() {
     return {
       ngModule: UtilsModule
     };
