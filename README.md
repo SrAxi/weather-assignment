@@ -49,7 +49,6 @@ About the project
 Future implementations or improvements
 -------------
 
- - Add a control that checks that if user clicks a city that is already selected the App shouldn't do another API call.
  - Create a Component for error handling in the template, passing as parameters: context, error msg, etc.
  - Instead of filtering the forecast data by getting the results that match with the hour: 12:00, the system should calculate the average temperature, humidity and wind during all the hours of each day. This would allow to show the average temperature (for example) during the whole day instead of just the temperature at 12:00.
  - Add an option to view forecast hour in an interval of 3 hours when clicking on a forecast day.
