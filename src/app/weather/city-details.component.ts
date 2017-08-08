@@ -31,23 +31,27 @@ export class CityDetailsComponent implements OnInit, OnDestroy {
     // Triggers when a city is selected, will receive the city and get its data
     this.citySelectedSubscription = this.weatherService.citySelected$.subscribe(
       (selectedCity) => {
-        this.currentCity = selectedCity;
-        // Gets city's forecast data
-        this.weatherService.getCityForecast(selectedCity.id).subscribe(
-          (cityForecast) => {
-            // Mapping forecast data in order to filter data and obtain an array with 5 objects, one per day
-            this.mapToGetFiveDays(cityForecast.list);
+        // Checking if received clicked city is not the same as the previous one
+        // This will avoid calling the API for the same city over and over
+        if (selectedCity !== this.currentCity) {
+          this.currentCity = selectedCity;
+          // Gets city's forecast data
+          this.weatherService.getCityForecast(selectedCity.id).subscribe(
+            (cityForecast) => {
+              // Mapping forecast data in order to filter data and obtain an array with 5 objects, one per day
+              this.mapToGetFiveDays(cityForecast.list);
 
-            // Triggering shared service method in order to send the forecast data to the Chart's component
-            // (or any other subscribed component)
-            this.weatherService.cityForecast(this.cityForecast5days);
-          },
-          (error) => {
-            // filling error handler so error msg will be shown
-            this.errorGettingForecast.error = true;
-            this.errorGettingForecast.msg = error;
-          }
-        );
+              // Triggering shared service method in order to send the forecast data to the Chart's component
+              // (or any other subscribed component)
+              this.weatherService.cityForecast(this.cityForecast5days);
+            },
+            (error) => {
+              // filling error handler so error msg will be shown
+              this.errorGettingForecast.error = true;
+              this.errorGettingForecast.msg = error;
+            }
+          );
+        }
       }
     );
   }
