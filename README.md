@@ -28,6 +28,13 @@ Run unit tests
 Run end-2-end tests
 
     ng e2e
+    
+To use **compiled version**, we should have installed [http-server](https://www.npmjs.com/package/http-server):
+
+    npm install http-server -g
+And in the `dist` folder execute the following command:
+
+    http-server -o --cors
 
 Technologies
 -------------
