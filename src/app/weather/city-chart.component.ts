@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { WeatherService } from './weather.service';
 import { Subscription } from 'rxjs/Rx';
-import { City } from '../../assets/api/city.model';
+import { City } from '../shared/interfaces/city.model';
 import Chart from 'chart.js';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { Subscription } from 'rxjs/Rx';
-import { City } from '../../assets/api/city.model';
+import { City } from '../shared/interfaces/city.model';
 
 @Component({
   selector: 'city-details',

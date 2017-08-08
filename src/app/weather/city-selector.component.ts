@@ -1,13 +1,13 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { WeatherService } from './weather.service';
-import { City } from '../../assets/api/city.model';
+import { City } from '../shared/interfaces/city.model';
 
 
 @Component({
   selector: 'city-selector',
   templateUrl: './city-selector.component.html'
 })
-export class CitySelectorComponent implements OnInit, OnChanges {
+export class CitySelectorComponent implements OnChanges {
   // Array of cities received from parent
   @Input() citiesList: Array<City>;
 
@@ -46,9 +46,6 @@ export class CitySelectorComponent implements OnInit, OnChanges {
         }
       );
     }
-  }
-
-  ngOnInit() {
   }
 
   // method triggered by clicking the rows in the table, it will trigger several subscriptions in our shared service

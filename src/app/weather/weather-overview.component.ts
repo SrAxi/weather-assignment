@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './weather.service';
-import { City } from '../../assets/api/city.model';
+import { City } from '../shared/interfaces/city.model';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({

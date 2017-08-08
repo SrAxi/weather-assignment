@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ApiService } from "./shared/api/api.service";
-import { WeatherModule } from "./weather/weather.module";
+import { ApiService } from './shared/api/api.service';
+import { WeatherModule } from './weather/weather.module';
 
 @NgModule({
   declarations: [
