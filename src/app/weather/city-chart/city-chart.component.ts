@@ -7,7 +7,8 @@ import Chart from 'chart.js';
 
 @Component({
   selector: 'city-chart',
-  templateUrl: './city-chart.component.html'
+  templateUrl: './city-chart.component.html',
+  styleUrls: ['./city-chart.component.css']
 })
 export class CityChartComponent implements OnInit, OnDestroy {
   // Current selected city

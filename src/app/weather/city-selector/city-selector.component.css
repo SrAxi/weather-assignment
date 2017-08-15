@@ -1,0 +1,13 @@
+table.city-table {
+  padding: 10px;
+}
+
+table.city-table tbody tr:hover {
+  background-color: #0275d8;
+  color: #eeeeee;
+  cursor: pointer;
+}
+
+table.city-table tbody tr td {
+  vertical-align: middle;
+}

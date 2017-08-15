@@ -5,7 +5,8 @@ import { City } from '../../shared/interfaces/city.model';
 
 @Component({
   selector: 'city-selector',
-  templateUrl: './city-selector.component.html'
+  templateUrl: './city-selector.component.html',
+  styleUrls: ['./city-selector.component.css']
 })
 export class CitySelectorComponent implements OnChanges {
   // Array of cities received from parent
