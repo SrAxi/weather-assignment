@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { WeatherService } from './weather.service';
+import { WeatherService } from '../weather.service';
 import { Subscription } from 'rxjs/Rx';
-import { City } from '../shared/interfaces/city.model';
+import { City } from '../../shared/interfaces/city.model';
 import Chart from 'chart.js';
 
 @Component({
@@ -84,7 +84,7 @@ export class CityChartComponent implements OnInit, OnDestroy {
         this.chartData.wind = [];
 
         // We map the forecast data and place the values in our properties so the Chart can reach them
-        forecast.map(
+        forecast.forEach(
           (day) => {
             // converting a readable date for JS to work with
             const dateTime = new Date(Date.parse(day.dt_txt));

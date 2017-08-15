@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
-import { UtilsModule } from '../shared/utils/utils.module';
+import { UtilsModule } from '../../shared/utils/utils.module';
 import { DatePipe } from '@angular/common';
 
-import { ApiService } from '../shared/api/api.service';
-import { WeatherOverviewComponent } from './weather-overview.component';
+import { ApiService } from '../../shared/api/api.service';
+import { WeatherOverviewComponent } from '../overview/weather-overview.component';
 import { CityDetailsComponent } from './city-details.component';
-import { CityChartComponent } from './city-chart.component';
-import { WeatherService } from './weather.service';
-import { CitySelectorComponent } from './city-selector.component';
+import { CityChartComponent } from '../city-chart/city-chart.component';
+import { WeatherService } from '../weather.service';
+import { CitySelectorComponent } from '../city-selector/city-selector.component';
 
 
 describe('CityDetailsComponent', () => {

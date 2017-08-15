@@ -7,10 +7,10 @@ import { UtilsModule } from '../shared/utils/utils.module';
 import { WeatherService } from './weather.service';
 import { DatePipe } from '@angular/common';
 /*Component imports*/
-import { WeatherOverviewComponent } from './weather-overview.component';
-import { CitySelectorComponent } from './city-selector.component';
-import { CityDetailsComponent } from './city-details.component';
-import { CityChartComponent } from './city-chart.component';
+import { WeatherOverviewComponent } from './overview/weather-overview.component';
+import { CitySelectorComponent } from './city-selector/city-selector.component';
+import { CityDetailsComponent } from './city-details/city-details.component';
+import { CityChartComponent } from './city-chart/city-chart.component';
 
 @NgModule({
   declarations: [

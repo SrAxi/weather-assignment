@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { WeatherService } from './weather.service';
-import { City } from '../shared/interfaces/city.model';
+import { WeatherService } from '../weather.service';
+import { City } from '../../shared/interfaces/city.model';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class CitySelectorComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (this.citiesList) {
       // We'll loop through the cities array in order to retrieve the current weather data for each one of them
-      this.citiesList.map(
+      this.citiesList.forEach(
         (city) => {
           this.weatherService.getCityCurrent(city.id).subscribe(
             (cityCurrent) => {

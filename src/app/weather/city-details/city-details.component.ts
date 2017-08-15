@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { WeatherService } from './weather.service';
+import { WeatherService } from '../weather.service';
 import { Subscription } from 'rxjs/Rx';
-import { City } from '../shared/interfaces/city.model';
+import { City } from '../../shared/interfaces/city.model';
 
 @Component({
   selector: 'city-details',
@@ -61,7 +61,7 @@ export class CityDetailsComponent implements OnInit, OnDestroy {
     // clearing array data to avoid days stacking when clicking several times
     this.cityForecast5days = [];
 
-    data.map(
+    data.forEach(
       (item) => {
         // Getting the date and making it readable for JS
         const dateTime = new Date(Date.parse(item.dt_txt));
